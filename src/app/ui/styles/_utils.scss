@@ -1,0 +1,10 @@
+@function show-available-keys($keys, $key: ''){
+    $keys-list: "";
+    @each $map-key, $map-value in $keys {
+      $keys-list: $keys-list + "#{$map-key}: #{$map-value}, ";
+    }
+    $keys-list: str-slice($keys-list, 1, str-length($keys-list) - 2);
+    @warn "YOUR KEY: #{$key} KEYS: #{$keys-list}.";
+    @return null;
+  };
+

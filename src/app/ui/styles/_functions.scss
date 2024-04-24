@@ -1,0 +1,51 @@
+@use './styles-config' as *;
+@use './utils' as *;
+
+@function fs($key){
+    @if map-has-key($font-sizes, $key){
+        @return map-get($font-sizes, $key);
+    }
+    @return show-available-keys($font-sizes, $key);
+}
+
+@function cl($key){
+    @if map-has-key($colors, $key){
+        @return map-get($colors, $key);
+    }
+    @return show-available-keys($colors, $key);
+}
+
+@function sp($key){
+    @if map-has-key($spacings, $key){
+        @return map-get($spacings, $key);
+    }
+    @return show-available-keys($spacings, $key);
+}
+
+@function break-points($key){
+    @if map-has-key($breakpoints, $key){
+        @return map-get($breakpoints, $key);
+    }
+    @return show-available-keys($breakpoints, $key);
+}
+
+@function alignment($key){
+    @if map-has-key($alignments, $key){
+        @return map-get($alignments, $key);
+    }
+    @return show-available-keys($alignments, $key);
+};
+
+@function br($key){
+    @if map-has-key($border-radius, $key){
+        @return map-get($border-radius, $key);
+    }
+    @return show-available-keys($border-radius, $key);
+};
+
+
+
+
+
+
+
