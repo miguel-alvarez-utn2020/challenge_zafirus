@@ -1,6 +1,7 @@
 <ion-card class="card">
-
-<ion-img  [@fadeInOut] [src]="urlImage"></ion-img>
+<div  class="card__img">
+    <img [@fadeInOut] [src]="urlImage">
+</div>
   <ion-card-content>
     <ion-list [@listAnimation]="heroFeatures.length">
         @for (feature of heroFeatures; track $index) {
