@@ -1,0 +1,11 @@
+{
+    "heroListPage":{
+       "headerTitle": "Lista de Heroes"
+    },
+    "detailPage": {
+      "numberComics" : "Cantidad de Comics disponibles",
+      "numberSeries" : "Cantidad de Series disponibles",
+      "numberStories" : "Cantidad de Stories disponibles"
+    }
+  
+  }

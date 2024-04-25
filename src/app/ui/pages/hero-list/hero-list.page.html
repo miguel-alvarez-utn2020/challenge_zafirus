@@ -1,0 +1,9 @@
+<app-header [headerTitle]=" 'heroListPage.headerTitle' | translate " ></app-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list>
+    @for (hero of characters(); track $index) {
+      <app-item-hero-list (emitHeroSelected)="goToDetail($event)" [hero]="hero"></app-item-hero-list>
+    }
+  </ion-list>
+</ion-content>

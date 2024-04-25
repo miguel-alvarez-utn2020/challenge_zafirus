@@ -1,0 +1,38 @@
+<app-header [headerTitle]=" hero.name ? hero.name : '' " [backUrl]="'/'"></app-header>
+<ion-content>
+        @if(!loaded){
+            <ion-card >
+                <ion-skeleton-text [animated]="true" style="height: 400px;"></ion-skeleton-text>
+                <ion-card-content>
+                    <ion-item>
+                        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+                    </ion-item>
+                    <ion-item>
+                        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+                    </ion-item>
+                    <ion-item>
+                        <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+        }
+        @else {
+            <ion-card [@fadeInOut]>
+                <ion-img [src]="urlImage"></ion-img>
+                <ion-card-content>
+                    <ion-item>
+                        <ion-label> {{'detailPage.numberComics' | translate}} </ion-label>
+                        <ion-badge slot="end">{{hero.comics.items.length}}</ion-badge>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label> {{'detailPage.numberSeries' | translate}} </ion-label>
+                        <ion-badge slot="end">{{hero.series.items.length}}</ion-badge>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>{{'detailPage.numberStories' | translate}}</ion-label>
+                        <ion-badge slot="end"> {{hero.stories.items.length}} </ion-badge>
+                    </ion-item>
+                </ion-card-content>
+            </ion-card>
+        }
+</ion-content>

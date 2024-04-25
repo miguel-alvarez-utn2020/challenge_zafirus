@@ -1,0 +1,11 @@
+<ion-item class="item"> 
+  <ion-thumbnail slot="start">
+    <img [src]="hero.thumbnail.path+'.'+hero.thumbnail.extension" />
+  </ion-thumbnail>
+  <ion-label class="item__label"> {{ hero.name }} </ion-label>
+  <ion-buttons slot="end">
+    <ion-button (click)="goToDetail(hero.id)">
+      <ion-icon class="item__icon" color="primary" name="eye-outline"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+</ion-item>

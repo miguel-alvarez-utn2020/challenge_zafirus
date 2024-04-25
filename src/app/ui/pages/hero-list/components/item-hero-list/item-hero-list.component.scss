@@ -1,0 +1,10 @@
+@use '../../../../styles/index.scss' as *;
+
+.item{
+    &__label{
+        font-size: fs(fs-14);
+    }
+    &__icon{
+        font-size: fs(fs-18);
+    }
+}
