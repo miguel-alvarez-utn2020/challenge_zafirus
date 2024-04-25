@@ -25,6 +25,7 @@
     "useDefineForClassFields": false,
     "paths": {
       "@app/shared/components":["src/app/ui/components"],
+      "@app/pages/components":["src/app/ui/pages/hero-list/components"],
       
 
     }

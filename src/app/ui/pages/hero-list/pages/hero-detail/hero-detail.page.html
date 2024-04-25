@@ -1,0 +1,18 @@
+<app-header [headerTitle]=" hero.name ? hero.name : '' " [backUrl]="'/'"></app-header>
+<ion-content class="content">
+        @if(!loaded){
+            <app-hero-card-skeleton></app-hero-card-skeleton>
+        }
+        @else {
+            <app-hero-card   
+                [@fadeInOut]
+                [urlImage]="urlImage"
+                [numberComics]="hero.comics.items.length"
+                [numberSeries]="hero.series.items.length"
+                [numberStories]="hero.stories.items.length"
+                [numberComicsLabel]=" 'detailPage.numberComics' | translate"
+                [numberSeriesLabel]=" 'detailPage.numberSeries' | translate"
+                [numberStoriesLabel]=" 'detailPage.numberStories' | translate"
+            ></app-hero-card>
+        }
+</ion-content>

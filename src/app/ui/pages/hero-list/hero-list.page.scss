@@ -1,0 +1,13 @@
+@use '../../styles/index.scss' as *;
+
+.hero-list{
+    padding-left: sp(sp-12);
+    display: flex;
+    flex-direction: column;
+    row-gap: sp(sp-8);
+    background: none;
+}
+
+.content{
+    --background: #1C212E;
+}

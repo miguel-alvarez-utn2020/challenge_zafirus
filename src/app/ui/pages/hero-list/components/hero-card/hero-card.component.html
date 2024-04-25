@@ -1,0 +1,17 @@
+<ion-card class="card">
+  <ion-img [src]="urlImage"></ion-img>
+  <ion-card-content>
+      <ion-item>
+          <ion-label> {{ numberComicsLabel }} </ion-label>
+          <ion-badge class="card__badge" slot="end">{{ numberComics }}</ion-badge>
+      </ion-item>
+      <ion-item>
+          <ion-label> {{ numberSeriesLabel }} </ion-label>
+          <ion-badge class="card__badge" slot="end">{{ numberSeries }}</ion-badge>
+      </ion-item>
+      <ion-item>
+          <ion-label>{{ numberStoriesLabel }}</ion-label>
+          <ion-badge class="card__badge" slot="end"> {{ numberStories }} </ion-badge>
+      </ion-item>
+  </ion-card-content>
+</ion-card>

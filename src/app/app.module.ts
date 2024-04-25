@@ -10,6 +10,7 @@ import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common
 import { HeroInterceptor } from './infrastructure/interceptors/hero.interceptor';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { LenguageService } from './infrastructure/shared/services/lenguage.service';
 
 
 export function HttpLoaderFactory(http: HttpClient) {

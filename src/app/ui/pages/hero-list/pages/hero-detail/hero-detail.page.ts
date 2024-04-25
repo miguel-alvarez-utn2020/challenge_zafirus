@@ -1,30 +1,32 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { HeroService } from 'src/app/aplication/core/hero.service';
 import { Hero } from 'src/app/aplication/domain/hero/hero.interface';
+import { detailAnimation } from 'src/app/infrastructure/shared/animation/hero-detail';
 
 @Component({
   selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html',
-  styleUrls: ['./hero-detail.component.scss'],
+  templateUrl: './hero-detail.page.html',
+  styleUrls: ['./hero-detail.page.scss'],
   animations: [
-    trigger('fadeInOut', [
-      state('void', style({
-        opacity: 0
-      })),
-      transition('void <=> *', animate(500)),
-    ])
+    detailAnimation
   ]
 })
-export class HeroDetailComponent  implements OnInit {
+
+export class HeroDetailPage implements OnInit {
+  private translate = inject(TranslateService);
 
   private heroService = inject(HeroService);
   public hero: Hero  = {} as Hero; 
   urlImage: string = ''
   heroId!: number;
   loaded: boolean = false;
+  
   constructor(private route: ActivatedRoute) { 
+    this.translate.use(localStorage.getItem('language')!);
+
     this.getQueryParamId();
   }
 
@@ -52,5 +54,4 @@ export class HeroDetailComponent  implements OnInit {
   buildUrlImg(path: string, extension: string){
     this.urlImage = `${path}.${extension}`
   }
-
 }

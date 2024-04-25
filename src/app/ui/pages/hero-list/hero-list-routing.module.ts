@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HeroListPage } from './hero-list.page';
-import { HeroDetailComponent } from './pages/hero-detail/hero-detail.component';
 
 const routes: Routes = [
   {
@@ -11,8 +10,9 @@ const routes: Routes = [
   },
   {
     path: 'detail/:id',
-    component: HeroDetailComponent
+    loadChildren: () => import('./pages/hero-detail/hero-detail.module').then( m => m.HeroDetailPageModule)
   }
+
   
 ];
 
