@@ -1,11 +1,13 @@
 {
   "heroListPage":{
-     "headerTitle": "Hero List"
+     "headerTitle": "Hero List",
+     "apiError" : "Error loading hero list"
   },
   "detailPage": {
     "numberComics" : "Number of Comics available",
     "numberSeries" : "Number of Series available",
-    "numberStories" : "Number of Stories available"
+    "numberStories" : "Number of Stories available",
+    "apiError": "Error loading detail"
   }
 
 }

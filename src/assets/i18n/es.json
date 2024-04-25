@@ -1,11 +1,14 @@
 {
     "heroListPage":{
-       "headerTitle": "Lista de Heroes"
+       "headerTitle": "Lista de Heroes",
+       "apiError" : "Error al cargar lista de héroes"
     },
     "detailPage": {
       "numberComics" : "Cantidad de Comics disponibles",
       "numberSeries" : "Cantidad de Series disponibles",
-      "numberStories" : "Cantidad de Stories disponibles"
+      "numberStories" : "Cantidad de Stories disponibles",
+      "apiError": "Error al cargar detalle."
+
     }
   
   }

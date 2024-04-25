@@ -1,56 +1,68 @@
-:root{
+:root {
   font-size: 62.5%;
 }
+
+$font-sizes: (
+  label: 1.4rem,
+  title: 2.4rem,
+  pholder: 1.2rem,
+  fs-8: 0.8rem,
+  fs-10: 1rem,
+  fs-12: 1.2rem,
+  fs-14: 1.4rem,
+  fs-16: 1.6rem,
+  fs-18: 1.8rem,
+  fs-20: 2rem,
+  fs-24: 2.4rem,
+);
+
+$spacings: (
+  sp-2: 2px,
+  sp-4: 4px,
+  sp-8: 8px,
+  sp-10: 10px,
+  sp-12: 12px,
+  sp-14: 14px,
+  sp-16: 16px,
+  sp-18: 18px,
+  sp-20: 20px,
+  sp-32: 32px,
+  sp-40: 40px,
+);
+
+$border-radius: (
+  br-4: 4px,
+  br-6: 6px,
+  br-8: 8px,
+  br-12: 12px,
+  br-16: 16px,
+  br-20: 20px,
+  br-32: 32px,
+  br-80: 80%,
+  br-100: 100%,
+);
+
+$alignments: (
+  c: center,
+  end: flex-end,
+  start: flex-start,
+);
+
+$breakpoints: (
+  "s": 480px,
+  "m": 768px,
+  "l": 1024px,
+  "xl": 1200px,
+);
+
+.toast-style {
+  font-size: 1.6rem;
+  text-align: center;
+  &__error {
+    --background: var(--ion-color-danger);
+  }
+  &__success {
+    --background: var(--ion-color-success);
+  }
   
-  $font-sizes: (
-    label: 1.4rem,
-    title: 2.4rem,
-    pholder: 1.2rem,
-    fs-8 : 0.8rem,
-    fs-10: 1rem,
-    fs-12: 1.2rem,
-    fs-14: 1.4rem,
-    fs-16: 1.6rem,
-    fs-18: 1.8rem,
-    fs-20: 2.0rem,
-    fs-24: 2.4rem,
-  );
-  
-  $spacings: (
-    sp-2: 2px,
-    sp-4: 4px,
-    sp-8: 8px,
-    sp-10: 10px,
-    sp-12: 12px,
-    sp-14: 14px,
-    sp-16: 16px,
-    sp-18: 18px,
-    sp-20: 20px,
-    sp-32: 32px,
-    sp-40: 40px,
-  );
-  
-  $border-radius: (
-    br-4  : 4px,
-    br-6  : 6px,
-    br-8  : 8px,
-    br-12 : 12px,
-    br-16 : 16px,
-    br-20 : 20px,
-    br-32 : 32px,
-    br-80: 80%,
-    br-100: 100%,
-  );
-  
-  $alignments: (
-    c: center,
-    end: flex-end,
-    start: flex-start,
-  );
-  
-  $breakpoints: (
-    "s": 480px,
-    "m": 768px,
-    "l": 1024px,
-    "xl": 1200px,
-  );
+}

@@ -1,4 +1,9 @@
+@use '../../../../styles/index.scss' as *;
 .card{
+    &__label{
+        font-size: fs(fs-14);
+        font-weight: 500;
+    }
     &__badge{
         display: flex;
         justify-content: center;

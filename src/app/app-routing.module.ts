@@ -7,7 +7,7 @@ const routes: Routes = [
     loadChildren: () => import('./ui/pages/hero-list/hero-list.module').then( m => m.HeroListPageModule)
   },
   {
-    path: '',
+    path: '**',
     redirectTo: 'hero-list',
     pathMatch: 'full'
   },

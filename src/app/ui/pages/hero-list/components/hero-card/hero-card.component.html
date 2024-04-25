@@ -1,17 +1,15 @@
 <ion-card class="card">
-  <ion-img [src]="urlImage"></ion-img>
+
+<ion-img  [@fadeInOut] [src]="urlImage"></ion-img>
   <ion-card-content>
-      <ion-item>
-          <ion-label> {{ numberComicsLabel }} </ion-label>
-          <ion-badge class="card__badge" slot="end">{{ numberComics }}</ion-badge>
-      </ion-item>
-      <ion-item>
-          <ion-label> {{ numberSeriesLabel }} </ion-label>
-          <ion-badge class="card__badge" slot="end">{{ numberSeries }}</ion-badge>
-      </ion-item>
-      <ion-item>
-          <ion-label>{{ numberStoriesLabel }}</ion-label>
-          <ion-badge class="card__badge" slot="end"> {{ numberStories }} </ion-badge>
-      </ion-item>
+    <ion-list [@listAnimation]="heroFeatures.length">
+        @for (feature of heroFeatures; track $index) {
+            <ion-item>
+                <ion-label class="card__label" color="dark"> {{ feature.featureLabel| translate }} </ion-label>
+                <ion-badge class="card__badge" slot="end">{{ feature.featureNumber }}</ion-badge>
+            </ion-item>
+        }
+    </ion-list>
+
   </ion-card-content>
 </ion-card>

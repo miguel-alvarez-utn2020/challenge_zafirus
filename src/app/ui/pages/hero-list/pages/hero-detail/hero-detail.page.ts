@@ -1,10 +1,13 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { HeroService } from 'src/app/aplication/core/hero.service';
-import { Hero } from 'src/app/aplication/domain/hero/hero.interface';
+import { Hero, HeroFeature } from 'src/app/aplication/domain/hero/hero.interface';
+import { ToastStyles } from 'src/app/aplication/domain/toast/toast.enum';
 import { detailAnimation } from 'src/app/infrastructure/shared/animation/hero-detail';
+import { StorageService } from 'src/app/infrastructure/shared/services/storage.service';
+import { ToastService } from 'src/app/infrastructure/shared/services/toast.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -15,24 +18,26 @@ import { detailAnimation } from 'src/app/infrastructure/shared/animation/hero-de
   ]
 })
 
-export class HeroDetailPage implements OnInit {
+export class HeroDetailPage implements OnInit, OnDestroy {
   private translate = inject(TranslateService);
 
   private heroService = inject(HeroService);
-  public hero: Hero  = {} as Hero; 
+  private storageService = inject(StorageService);
+  private toastService = inject(ToastService);
+  public hero: Hero  = {} as Hero;
+  public heroFeatures: HeroFeature[] = [] 
   urlImage: string = ''
   heroId!: number;
   loaded: boolean = false;
   
   constructor(private route: ActivatedRoute) { 
-    this.translate.use(localStorage.getItem('language')!);
-
+    this.translate.use(this.storageService.getItem('language')!);
     this.getQueryParamId();
   }
+ 
 
   ngOnInit() {
     this.getHeroById();
-    
   }
 
   getQueryParamId(){
@@ -45,13 +50,38 @@ export class HeroDetailPage implements OnInit {
         if(hero){
           this.hero = hero;
           this.loaded = true;
+          this.buildFeatures();
           this.buildUrlImg(hero.thumbnail.path, hero.thumbnail.extension);
         }
+      },
+      error: () => {
+        this.toastService.presentToast('detailPage.apiError', ToastStyles.ERROR);
       }
     })
   }
 
   buildUrlImg(path: string, extension: string){
     this.urlImage = `${path}.${extension}`
+  }
+
+  buildFeatures(){
+    this.heroFeatures = [
+      {
+        featureLabel: 'detailPage.numberComics',
+        featureNumber: this.hero.comics.items.length
+      },
+      {
+        featureLabel: 'detailPage.numberSeries',
+        featureNumber: this.hero.series.items.length
+      },
+      {
+        featureLabel: 'detailPage.numberStories',
+        featureNumber: this.hero.stories.items.length
+      },
+    ]
+  }
+
+  ngOnDestroy(): void {
+    this.storageService.removeItem('heroId');
   }
 }

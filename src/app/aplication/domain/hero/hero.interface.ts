@@ -48,3 +48,8 @@ export interface URL {
     type: string;
     url:  string;
 }
+
+export interface HeroFeature{
+    featureLabel: string,
+    featureNumber: number
+}
